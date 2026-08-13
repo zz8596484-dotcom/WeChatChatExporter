@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 微信聊天记录采集助手"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="本工具只读取你当前打开的微信聊天界面，通过无障碍服务获取可视内容，所有数据仅保存在本机。不破解、不Root、不改动微信。"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 状态区 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F5F5F5"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="采集状态："
+                android:textSize="15sp"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="空闲"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#2E7D32" />
+        </LinearLayout>
+
+        <!-- 已采集消息统计 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#F0F7FF"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已采集消息："
+                android:textSize="15sp"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#1565C0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 条"
+                android:textSize="15sp" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  已滚动位置："
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_scroll_pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="顶部"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#1565C0" />
+        </LinearLayout>
+
+        <!-- 联系人信息（用户填写，可选） -->
+        <EditText
+            android:id="@+id/et_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="联系人昵称 / 备注名（可选，仅用于生成文件名）"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@android:drawable/editbox_background"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 保存目录（可选） -->
+        <EditText
+            android:id="@+id/et_outdir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="保存目录（默认：/sdcard/WeChatChatExporter/output，可留空）"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@android:drawable/editbox_background"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 操作按钮 -->
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/start_capture"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_pause"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/pause_capture"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:backgroundTint="#FF9800"
+                android:enabled="false" />
+
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="1dp" />
+
+            <Button
+                android:id="@+id/btn_resume"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/resume_capture"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:backgroundTint="#2196F3"
+                android:enabled="false" />
+        </LinearLayout>
+
+        <Space android:layout_width="1dp" android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/btn_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/finish_export"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#F44336"
+            android:enabled="false" />
+
+        <Space android:layout_width="1dp" android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/btn_enable_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开启/进入 无障碍服务设置"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#673AB7" />
+
+        <Space android:layout_width="1dp" android:layout_height="10dp" />
+
+        <!-- 日志输出区 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="运行日志："
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#111111"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tv_log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="等待操作…\n"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:textColor="#00E676" />
+        </ScrollView>
+    </LinearLayout>
+</ScrollView>
