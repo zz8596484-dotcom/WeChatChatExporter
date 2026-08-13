@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 悬浮球展开的小控制面板 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/float_panel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_panel"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/btn_fp_start"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="@string/start_capture"
+        android:textSize="13sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginBottom="6dp" />
+
+    <Button
+        android:id="@+id/btn_fp_pause"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="@string/pause_capture"
+        android:textSize="13sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#FF9800"
+        android:layout_marginBottom="6dp" />
+
+    <Button
+        android:id="@+id/btn_fp_resume"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="@string/resume_capture"
+        android:textSize="13sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#2196F3"
+        android:layout_marginBottom="6dp" />
+
+    <Button
+        android:id="@+id/btn_fp_finish"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="@string/finish_export"
+        android:textSize="13sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#F44336" />
+</LinearLayout>
